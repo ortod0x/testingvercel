@@ -1,11 +1,7 @@
 import httpProxy from "http-proxy";
 
 const target = "http://95.179.151.4:3000";
-
-const proxy = httpProxy.createProxyServer({
-  target,
-  changeOrigin: true,
-});
+const proxy = httpProxy.createProxyServer({ target, changeOrigin: true });
 
 export default function handler(req, res) {
   return new Promise((resolve, reject) => {
@@ -22,8 +18,5 @@ export default function handler(req, res) {
 }
 
 export const config = {
-  api: {
-    bodyParser: false,
-    externalResolver: true,
-  },
+  api: { bodyParser: false, externalResolver: true },
 };
